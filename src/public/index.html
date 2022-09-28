@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Document</title>
+</head>
+<body>
+  <nav class='nav navbar-dark bg-dark'>
+    <a href='/' class='nav navbar-brand mx-auto'>CHAT JS</a>
+  </nav>
+
+  <!-- Formulario de acceso -->
+  <div class='card col-md-4 mx-auto mt-5' id='nick-wrap'>
+    <!-- CARD es una tipo tarjeta MD es el tamaño para la tarjeta y MX-AUTO es para centrar MT es margin top y el id es para acceder desde JS-->
+    <div class='card-header'>
+      <!-- Cabecera para la tarjeta. CARD-HEADER es class de bootstrap-->
+      <h4>Introduce tu usuario</h4>
+    </div>
+    <!--Esto es para agarrar luego desde JS por si hay un error con el usuario hacer algo-->
+    <p id='nick-error'></p>
+    <div class='card-body'>
+      <!--Formulario para crear el nick con el input para escribir el nick y el input para acceder al chat-->
+      <form id='nick-form'>
+        <input type='text' id='nick-name' class='form-control'>
+        <button type='submit' class='btn btn-success mt-3' id='nick-btn'>Acceder</button>
+       
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- FORMULARIO CHAT (De la ventana del chat, donde se veran los mensajes)-->
+  <div class='container' id='content-wrap'>
+<!-- ROW es class de fila de bootstrap y dentro ubicas las COL que son las columnas con su MD (tamaño) y MT (margin top)-->
+    <div class='row'>
+
+      <div class ='col-md-7 mt-5'>
+<!-- Aqui dentro de este card tengo el HEADER y dos secciones, el BODY del chat y el FORM con el INPUT para escribir los mensajes que luego se mostraran en el body + el BUTTON para enviar-->
+        <div class='card'>
+          
+          <div class='card-header'>
+            <h4>CHAT</h4>
+          </div>
+          <div class='card-body' id='chat'>
+
+          </div>
+
+          <form id='messages-form' class='card-footer'>
+            <div class='input-group'><!-- Este INPUT-GROUP es una clase de bootstrap que te pone el boton al lado del input que tiene la clase INPUT-GROUP-APPEND-->
+              <input class='form-control' type='tex' id='message'>
+              
+              <div class='input-group-append'>
+                <button class='btn btn-success' type='submit'>Enviar</button>
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+      <div class='col-md-3 mt-5'> <!--Ventana donde se ven los usuarios conectados-->
+
+        <div class='card'>
+          <div class='card-header'>
+            <h4>Usuari@s conectad@s</h4>
+          </div>
+          <div class='card-body'>
+            <div id='usernames'><!-- Aquí van a ir apareciendo los usuarios -->
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src='/socket.io/socket.io.js' charset= 'utf-8'></script>
+    <script src='./js/main.js'></script>
+</body>
+</html>
